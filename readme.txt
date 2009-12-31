@@ -19,6 +19,11 @@ Allows you to paste the YouTube embed video code into any post or page when crea
 3. Ensure plugin files are in a folder named 'youtube-sidebar' i.e `/wp-content/plugins/youtube-sidebar/youtube-sidebar.php`
 
 == Changelog ==
+= 0.2 =
+* Moved settings to the main page and deleted setting page.
+* Deleted video management page, will be available in paid edition.
+* Moved plugin admin access to the Settings menu instead of having its own admin menu.
+* Added news iframe to the main page for better updating.
 
 = 0.1 =
 * Plugin launched on Wordpress by Ryan Bayne at WebTechGlobal.co.uk
