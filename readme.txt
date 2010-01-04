@@ -21,6 +21,10 @@ Display YouTube videos on individual pages. Let them list on a page, category vi
 6. Copy and paste the YouTube "Embed" video code into a new custom field for any post or page. Name the custom field "youtube".
 
 == Changelog ==
+= 0.4 =
+* Correct counter for max number of videos so it no longer displays 1 more than entered into options, also causing video display when 0 is entered.
+* Only one video will now automatically play. Previously a whole list would play at once after yesterdays upgrades. 
+
 = 0.3 =
 * Can now paste either the YouTube video url or the embed code. Only the url will cause the plugin settings to be applied, embed code is used as it is.
 * Autoplay option added to the settings.

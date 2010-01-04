@@ -41,7 +41,7 @@ function youtubesidebar_widget($args)
 	
 	if (have_posts())
 	{
-		$videocount = 0;
+		$videocount = 0;// number of videos applied to sidebar - including adsense or other content
 
 		if( is_front_page() || is_home() && get_option('youtubesidebar_frontpagevideos') != 0 )
 		{

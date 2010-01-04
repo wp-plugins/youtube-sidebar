@@ -44,7 +44,7 @@ function youtubesidebar_echovideos($video_results, $pagetype, $videocount)
 	{		
 		$type = strstr($youtubevideo,'<object ');// if match found will return true, else returns false
 
-		if( $videocount <= $maxvideos )
+		if( $videocount < $maxvideos && $maxvideos != 0 )
 		{
 			if( $type == true)// embed code found, no modification required 
 			{
@@ -53,7 +53,7 @@ function youtubesidebar_echovideos($video_results, $pagetype, $videocount)
 			elseif( $type == false )// we assume that it is a basic youtube url, not embed code
 			{
 				$youtubeid = youtubesidebar_returnvideoid($youtubevideo);
-				echo youtubesidebar_createembedsnippet($youtubeid);
+				echo youtubesidebar_createembedsnippet($youtubeid, $videocount);
 			}		
 		}
 		$videocount++;
@@ -90,9 +90,16 @@ function youtubesidebar_returnvideoid($youtube_url)
 }// end of returnvideoid function
 
 // this function will build the embed code were going to use in the sidebar
-function youtubesidebar_createembedsnippet($youtubeid)
+function youtubesidebar_createembedsnippet($youtubeid, $videocount)
 {
-	$autoplay = '&autoplay=1';
+	if( get_option('youtubesidebar_autoplay') == 1 && $videocount == 0)// first video and auto play on for it, but not the 2nd, 3rd etc
+	{
+		$autoplay = '&autoplay=1';
+	}
+	else
+	{
+		$autoplay = '';
+	}
 	
 	// the empty youtube embed code for adding our values too
 	$embedsnippet = '<object width="%-width-%" height="%-height-%">
