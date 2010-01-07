@@ -21,6 +21,9 @@ Display YouTube videos on individual pages. Let them list on a page, category vi
 6. Copy and paste the YouTube "Embed" video code into a new custom field for any post or page. Name the custom field "youtube".
 
 == Changelog ==
+= 0.5 =
+* Free edition now has a single admin page and it can be found in the settings menu.
+
 = 0.4 =
 * Correct counter for max number of videos so it no longer displays 1 more than entered into options, also causing video display when 0 is entered.
 * Only one video will now automatically play. Previously a whole list would play at once after yesterdays upgrades. 

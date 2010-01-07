@@ -1,7 +1,7 @@
 <?php
 /*
 	Plugin Name: YouTube Sidebar
-	Version: 0.3
+	Version: 0.5
 	Plugin URI: http://www.webtechglobal.co.uk/blog/wordpress/youtube-sidebar-plugin
 	Description: Add a video to each post or page using the admin and see it appear in the sidebar only when you visit that post or page.
 	Author: Ryan Bayne
@@ -19,14 +19,10 @@ $mypluginname_code = 'youtubesidebar';
 // plugin admin pages
 function youtubesidebar_adminmenu() 
 {
-	add_menu_page('YouTube Sidebar', 'YouTube Sidebar', 8, __FILE__, 'youtubesidebarpage1');
-    add_submenu_page(__FILE__, 'Settings', 'Settings', 8, 'youtubesidebar_settings', 'youtubesidebarpage2');
-    add_submenu_page(__FILE__, 'Video Management', 'Video Management', 8, 'youtubesidebar_video_management', 'youtubesidebarpage3');
+	add_options_page('YouTube Sidebar', 'YouTube Sidebar', 8, __FILE__, 'youtubesidebarpage1');
 }
 
 function youtubesidebarpage1(){require('youtube-sidebar-frontpage.php');}
-function youtubesidebarpage2(){require('youtube-sidebar-settings.php');}
-function youtubesidebarpage3(){require('youtube-sidebar-videomanagement.php');}
 
 function youtubesidebar_loaded()
 {

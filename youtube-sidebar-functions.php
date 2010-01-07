@@ -42,20 +42,22 @@ function youtubesidebar_echovideos($video_results, $pagetype, $videocount)
 	
 	foreach( $video_results as $youtubevideo )
 	{		
-		$type = strstr($youtubevideo,'<object ');// if match found will return true, else returns false
-
 		if( $videocount < $maxvideos && $maxvideos != 0 )
 		{
-			if( $type == true)// embed code found, no modification required 
+			$type1 = strstr($youtubevideo,'<object ');// if embed object match will return 1 else 0
+			$type2 = strstr($youtubevideo,'youtube.com/watch?v=');// if youtube url match will return 1 else 0		
+
+			if( $type1 == true)// embed code found, no modification required 
 			{
 				echo $youtubevideo;
 			}
-			elseif( $type == false )// we assume that it is a basic youtube url, not embed code
+			elseif( $type2 == true )// we assume that it is a basic youtube url, not embed code
 			{
 				$youtubeid = youtubesidebar_returnvideoid($youtubevideo);
 				echo youtubesidebar_createembedsnippet($youtubeid, $videocount);
-			}		
+			}
 		}
+		
 		$videocount++;
 	}
 	return $videocount;
