@@ -1,7 +1,7 @@
 <?php
 /*
 	Plugin Name: YouTube Sidebar
-	Version: 0.5
+	Version: 0.6
 	Plugin URI: http://www.webtechglobal.co.uk/blog/wordpress/youtube-sidebar-plugin
 	Description: Add a video to each post or page using the admin and see it appear in the sidebar only when you visit that post or page.
 	Author: Ryan Bayne
@@ -39,7 +39,7 @@ function youtubesidebar_widget($args)
 	{
 		$videocount = 0;// number of videos applied to sidebar - including adsense or other content
 
-		if( is_front_page() || is_home() && get_option('youtubesidebar_frontpagevideos') != 0 )
+		if( get_option('youtubesidebar_realpagetype') == 'frontpage' && get_option('youtubesidebar_frontpagevideos') != 0 )
 		{
 			// first check if there are any videos at all from all the posts being displayed, if so we can use the result as an adsense switch
 			$videosfound = 0;
@@ -71,7 +71,7 @@ function youtubesidebar_widget($args)
 				}
 			}				
 		}
-		elseif( is_single() || is_page() && get_option('youtubesidebar_singlepagevideos') != 0 )
+		elseif( get_option('youtubesidebar_realpagetype') == 'single' && get_option('youtubesidebar_singlepagevideos') != 0 )
 		{
 			the_post();
 			$video_results = get_post_meta(get_the_ID(), 'youtube');
@@ -86,9 +86,8 @@ function youtubesidebar_widget($args)
 				$videocount = youtubesidebar_displayadsense('single');
 			}
 		}
-		elseif( is_category() || is_archive() && get_option('youtubesidebar_categorypagevideos') != 0 )
+		elseif( get_option('youtubesidebar_realpagetype') == 'category' && get_option('youtubesidebar_categorypagevideos') != 0 )
 		{
-
 			// first check if there are any videos at all from all the posts being displayed, if so we can use the result as an adsense switch
 			$videosfound = 0;
 			while ( have_posts() )
@@ -126,5 +125,6 @@ function youtubesidebar_widget($args)
 // do hooks and actions
 add_action('admin_menu', 'youtubesidebar_adminmenu',0);
 register_activation_hook(__FILE__,'youtubesidebar_installation');
+add_action('wp_head','youtubesidebar_pagetype');
 add_action('plugins_loaded','youtubesidebar_loaded');
 ?>
