@@ -21,6 +21,9 @@ Display YouTube videos on individual pages. Let them list on a page, category vi
 6. Copy and paste the YouTube "Embed" video code into a new custom field for any post or page. Name the custom field "youtube".
 
 == Changelog ==
+= 0.7 =
+* Fixed Parse error: syntax error, unexpected '}' in youtube-sidebar-functions.php on line 255
+
 = 0.6 =
 * A sidebar "Latest Posts" menu no longer makes YouTube Sidebar think that single page or the front page is a category page.
 

@@ -251,6 +251,6 @@ function youtubesidebar_installation($state)
 	add_option('youtubesidebar_adsensecategoryonoff',1);// 1 = on and 0 = off for adsense on category pages
 	add_option('youtubesidebar_adsensesingleonoff',1);// 1 = on and 0 = off for adsense on single pages
 	add_option('youtubesidebar_adsensefrontpageonoff',1);// 1 = on and 0 = off for adsense on the front page
-	add_option('youtubesidebar_realpagetype','')// initial setup of the real page option, set in wp_head by action function
+	add_option('youtubesidebar_realpagetype','');// initial setup of the real page option, set in wp_head by action function
 }
 ?>
