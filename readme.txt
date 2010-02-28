@@ -21,6 +21,9 @@ Display YouTube videos on individual pages. Let them list on a page, category vi
 6. Copy and paste the YouTube "Embed" video code into a new custom field for any post or page. Name the custom field "youtube".
 
 == Changelog ==
+= 0.8 =
+* Pro edition now provided free.
+
 = 0.7 =
 * Fixed Parse error: syntax error, unexpected '}' in youtube-sidebar-functions.php on line 255
 
@@ -28,7 +31,8 @@ Display YouTube videos on individual pages. Let them list on a page, category vi
 * A sidebar "Latest Posts" menu no longer makes YouTube Sidebar think that single page or the front page is a category page.
 
 = 0.5 =
-* Free edition now has a single admin page and it can be found in the settings menu.
+* Select video skin colour menu now displays the current colour and does not go to default on saving.
+* Can now enter ANY content in the "youtube" named custom field.
 
 = 0.4 =
 * Correct counter for max number of videos so it no longer displays 1 more than entered into options, also causing video display when 0 is entered.

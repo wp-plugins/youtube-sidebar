@@ -15,6 +15,117 @@ function youtubesidebar_pagetype()
 	}
 }
 
+// plugin admin pages
+function youtubesidebar_adminmenu() 
+{
+	add_menu_page('YouTube Sidebar', 'YouTube Sidebar', 8, __FILE__, 'youtubesidebarpage1');
+    add_submenu_page(__FILE__, 'Settings', 'Settings', 8, 'youtubesidebar_settings', 'youtubesidebarpage2');
+    add_submenu_page(__FILE__, 'Video Management', 'Video Management', 8, 'youtubesidebar_video_management', 'youtubesidebarpage3');
+}
+
+function youtubesidebarpage1(){require('youtube-sidebar-frontpage.php');}
+function youtubesidebarpage2(){require('youtube-sidebar-settings.php');}
+function youtubesidebarpage3(){require('youtube-sidebar-videomanagement.php');}
+
+function youtubesidebar_loaded()
+{
+	$widget_ops = array('classname' => 'youtubesidebar_widget', 'description' => "Display YouTube videos in the sidebar from custom fields" );
+	wp_register_sidebar_widget('youtubesidebar_widget', 'YouTube Sidebar', 'youtubesidebar_widget', $widget_ops);
+}
+
+function youtubesidebar_widget($args)
+{
+	extract($args); // extracts before_widget,before_title,after_title,after_widget all required and cannot be deleted
+	echo $before_widget . $before_title . $after_title;
+	
+	if (have_posts())
+	{
+		$videocount = 0;// number of videos applied to sidebar - including adsense or other content
+
+		if( get_option('youtubesidebar_realpagetype') == 'frontpage' && get_option('youtubesidebar_frontpagevideos') != 0 )
+		{
+			// first check if there are any videos at all from all the posts being displayed, if so we can use the result as an adsense switch
+			$videosfound = 0;
+			while ( have_posts() )
+			{
+				the_post();
+				$video_results = get_post_meta(get_the_ID(), 'youtube');
+				
+				if( !empty ($video_results) )// videos returned
+				{				
+					$videosfound++;
+				}
+			}	
+			
+			// go on to display videos or adsense
+			while ( have_posts() && $videocount <= get_option('youtubesidebar_frontpagevideos') )
+			{
+				the_post();
+				$video_results = get_post_meta(get_the_ID(), 'youtube');
+				
+				// display the results
+				if( !empty ($video_results) )// videos returned
+				{
+					$videocount = youtubesidebar_echovideos($video_results, 'frontpage', $videocount);// final output of videos
+				}
+				elseif( empty ($video_results) && $videosfound == 0 )// no videos returned so display adsense content
+				{
+					$videocount = youtubesidebar_displayadsense('frontpage');
+				}
+			}				
+		}
+		elseif( get_option('youtubesidebar_realpagetype') == 'single' && get_option('youtubesidebar_singlepagevideos') != 0 )
+		{
+			the_post();
+			$video_results = get_post_meta(get_the_ID(), 'youtube');
+			
+			// display the results
+			if( !empty ($video_results) )// videos returned
+			{
+				$videocount = youtubesidebar_echovideos($video_results, 'single', $videocount);// final output of videos
+			}
+			elseif( empty ($video_results) )// no videos returned so display adsense content
+			{
+				$videocount = youtubesidebar_displayadsense('single');
+			}
+		}
+		elseif( get_option('youtubesidebar_realpagetype') == 'category' && get_option('youtubesidebar_categorypagevideos') != 0 )
+		{
+			// first check if there are any videos at all from all the posts being displayed, if so we can use the result as an adsense switch
+			$videosfound = 0;
+			while ( have_posts() )
+			{
+				the_post();
+				
+				$video_results = get_post_meta(get_the_ID(), 'youtube');
+				
+				if( !empty ($video_results) )// videos returned
+				{				
+					$videosfound++;
+				}
+			}
+			
+			while ( have_posts() )
+			{
+				the_post();
+				$video_results = get_post_meta(get_the_ID(), 'youtube');
+				
+				// display the results
+				if( !empty ($video_results) )// videos returned
+				{
+					$videocount =  youtubesidebar_echovideos($video_results, 'category', $videocount);// final output of videos
+				}
+				elseif( empty ($video_results) && $videosfound == 0 )// no videos returned so display adsense content
+				{
+					$videocount = youtubesidebar_displayadsense('category');
+				}
+			}		
+		}
+	}
+		
+	echo $after_widget;// required
+}
+
 function youtubesidebar_displayadsense($pagetype)
 {
 	// first get page types own setting for displaying adsense or not
@@ -55,8 +166,12 @@ function youtubesidebar_echovideos($video_results, $pagetype, $videocount)
 		$maxvideos = get_option('youtubesidebar_categorypagevideos');
 	}
 	
+	$exactvideo = 0;// counter for applying spaces
+
 	foreach( $video_results as $youtubevideo )
-	{		
+	{	
+		$exactvideo++;// counter for applying spaces
+		
 		if( $videocount < $maxvideos && $maxvideos != 0 )
 		{
 			$type1 = strstr($youtubevideo,'<object ');// if embed object match will return 1 else 0
@@ -70,9 +185,13 @@ function youtubesidebar_echovideos($video_results, $pagetype, $videocount)
 			{
 				$youtubeid = youtubesidebar_returnvideoid($youtubevideo);
 				echo youtubesidebar_createembedsnippet($youtubeid, $videocount);
+				if( $exactvideo != 0 ) { echo '<br />'; }
+			}
+			else// not a youtube video must be some other content
+			{
+				echo $youtubevideo;
 			}
 		}
-		
 		$videocount++;
 	}
 	return $videocount;
@@ -106,6 +225,34 @@ function youtubesidebar_returnvideoid($youtube_url)
 	return $youtubeid;
 }// end of returnvideoid function
 
+function youtubesidebar_videocolour1()
+{
+	if( get_option('youtubesidebar_colour') == 1 ){ $colour1 = ''; }//Default
+	elseif( get_option('youtubesidebar_colour') == 2 ){ $colour1 = '&color1=0x3a3a3a'; }//Dark Grey
+	elseif( get_option('youtubesidebar_colour') == 3 ){ $colour1 = '&color1=0x2b405b'; }//Navy Blue
+	elseif( get_option('youtubesidebar_colour') == 4 ){ $colour1 = '&color1=0x006699'; }//Sky Blue
+	elseif( get_option('youtubesidebar_colour') == 5 ){ $colour1 = '&color1=0x234900'; }//Green
+	elseif( get_option('youtubesidebar_colour') == 6 ){ $colour1 = '&color1=0xe1600f'; }//Orange
+	elseif( get_option('youtubesidebar_colour') == 7 ){ $colour1 = '&color1=0xcc2550'; }//Pink
+	elseif( get_option('youtubesidebar_colour') == 8 ){ $colour1 = '&color1=0x402061'; }//Purple
+	elseif( get_option('youtubesidebar_colour') == 9 ){ $colour1 = '&color1=0x5d1719'; }//Red
+	return $colour1;
+}
+
+function youtubesidebar_videocolour2()
+{
+	if( get_option('youtubesidebar_colour') == 1 ){ $colour2 = ''; }//Default
+	elseif( get_option('youtubesidebar_colour') == 2 ){ $colour2 = '&color2=0x999999'; }//Dark Grey
+	elseif( get_option('youtubesidebar_colour') == 3 ){ $colour2 = '&color2=0x6b8ab6'; }//Navy Blue
+	elseif( get_option('youtubesidebar_colour') == 4 ){ $colour2 = '&color2=0x54abd6'; }//Sky Blue
+	elseif( get_option('youtubesidebar_colour') == 5 ){ $colour2 = '&color2=0x4e9e00'; }//Green
+	elseif( get_option('youtubesidebar_colour') == 6 ){ $colour2 = '&color2=0xfebd01'; }//Orange
+	elseif( get_option('youtubesidebar_colour') == 7 ){ $colour2 = '&color2=0xe87a9f'; }//Pink
+	elseif( get_option('youtubesidebar_colour') == 8 ){ $colour2 = '&color2=0x9461ca'; }//Purple
+	elseif( get_option('youtubesidebar_colour') == 9 ){ $colour2 = '&color2=0xcd311b'; }//Red
+	return $colour2;
+}
+
 // this function will build the embed code were going to use in the sidebar
 function youtubesidebar_createembedsnippet($youtubeid, $videocount)
 {
@@ -113,25 +260,32 @@ function youtubesidebar_createembedsnippet($youtubeid, $videocount)
 	{
 		$autoplay = '&autoplay=1';
 	}
-	else
-	{
-		$autoplay = '';
-	}
+	else{$autoplay = '';}
 	
+	if( get_option('youtubesidebar_border') == 1)
+	{
+		$border = '&border=1';
+	}
+	else{$border = '';}
+	    
 	// the empty youtube embed code for adding our values too
 	$embedsnippet = '<object width="%-width-%" height="%-height-%">
-	<param name="movie" value="http://www.youtube.com/v/%-youtubeid-%%-autoplay-%"></param>
-	<param name="wmode" value="transparent"></param>
-	<embed src="http://www.youtube.com/v/%-youtubeid-%%-autoplay-%" type="application/x-shockwave-flash" wmode="transparent" width="%-width-%" height="%-height-%"></embed>
+	<param name="movie" value="http://www.youtube.com/v/%-youtubeid-%%-autoplay-%%-color1-%%-color2-%%-border-%"></param>
+	<param name="allowFullScreen" value="true"></param>
+	<param name="allowscriptaccess" value="always"></param>
+	<embed src="http://www.youtube.com/v/%-youtubeid-%%-autoplay-%%-color1-%%-color2-%%-border-%" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="%-width-%" height="%-height-%"></embed>
 	</object>';
 	
+	$colour1 = youtubesidebar_videocolour1();
+	$colour2 = youtubesidebar_videocolour2();
+
 	// replace embed code values with real values
 	$embedresult = str_replace(
-		array("%-youtubeid-%","%-width-%","%-height-%","%-autoplay-%"), 
-		array($youtubeid,get_option('youtubesidebar_width'),get_option('youtubesidebar_height'),$autoplay), 
+		array("%-youtubeid-%","%-width-%","%-height-%","%-autoplay-%","%-color1-%","%-color2-%","%-border-%"), 
+		array($youtubeid,get_option('youtubesidebar_width'),get_option('youtubesidebar_height'),$autoplay,$colour1,$colour2,$border), 
 		$embedsnippet
 	);		
-	
+
 	return $embedresult;
 }
 
@@ -230,8 +384,10 @@ function youtubesidebar_installation($state)
 		delete_option('youtubesidebar_adsensecategoryonoff');
 		delete_option('youtubesidebar_adsensesingleonoff');
 		delete_option('youtubesidebar_adsensefrontpageonoff');
+		delete_option('youtubesidebar_colour');
+		delete_option('youtubesidebar_border');
 	}
-	
+		
 	add_option('youtubesidebar_debugmode',0);// 0 = off 1 = on
 	add_option('youtubesidebar_height',200);// height of youtube video in sidebar
 	add_option('youtubesidebar_width',200);// width of youtube video in sidebar
@@ -251,6 +407,8 @@ function youtubesidebar_installation($state)
 	add_option('youtubesidebar_adsensecategoryonoff',1);// 1 = on and 0 = off for adsense on category pages
 	add_option('youtubesidebar_adsensesingleonoff',1);// 1 = on and 0 = off for adsense on single pages
 	add_option('youtubesidebar_adsensefrontpageonoff',1);// 1 = on and 0 = off for adsense on the front page
+	add_option('youtubesidebar_colour','1');// default is 1 and is no applied style in terms of code
+	add_option('youtubesidebar_border',0);// border on or off 1 = on and 0 = off
 	add_option('youtubesidebar_realpagetype','');// initial setup of the real page option, set in wp_head by action function
 }
 ?>
