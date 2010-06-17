@@ -1,32 +1,32 @@
 <?php yts_header('Home Page');?>
 
-    <div class="postbox closed">
-        <div class="handlediv" title="Click to toggle"><br /></div>
-        <h3>yts Widget</h3>
-        <div class="inside">
-         <p>First thing you need to do is get familiar with the settings available to you and configure Video Blog Builder's 
-         video display settings to suit your blog. Activate AdSense, switch videos of for certain page types, you can switch your
-         YouTube or BlipTV videos off seperate incase you stop using one of the services and more. Once your happy with the settings
-         simply go to the widget administration page and put yts in one of your sidebars. More instructions will come later.</p>
-        </div>
-    </div>
+          <div class="postbox">
+        
+        <h3 class='hndle'><span>News</span></h3>
+        
+        <iframe name="FRAME2" src="http://www.webtechglobal.co.uk/public_includes/wtg_plugins.php" width="100%" height="200" frameborder="1" ></iframe> 
+      </div>  
+      
     
-    <div class="postbox closed">
-        <div class="handlediv" title="Click to toggle"><br /></div>
-        <h3>yts Auto-Blogging</h3>
-        <div class="inside">
-        To be confirmed
+     <div id="poststuff" class="meta-box-sortables" style="position: relative; margin-top:10px;">
+        <div class="postbox">
+            <div class="handlediv" title="Click to toggle"><br />
+            </div>
+             <h3>Please Support My Plugin</h3>
+             
+            <div class="inside">
+              <p>Please support my the development I do by considering any of these highly recommended Wordpress products. These plugins are used on various 
+              WebTechGlobal sites and you will find they are among the most popular for Wordpress</p>
+              <a href="http://www.tipsandtricks-hq.com/wordpress-affiliate-platform-plugin-simple-affiliate-program-for-wordpress-blogsite-1474?ap_id=WebTechGlobal" target="_blank"><img src="http://images.tipsandtricks-hq.com/my-product-banner/wp_aff_125_arrow.gif" width="125" height="125" /></a>
+<a href="http://www.tipsandtricks-hq.com/wordpress-emember-easy-to-use-wordpress-membership-plugin-1706?ap_id=WebTechGlobal"><img src="http://images.tipsandtricks-hq.com/my-product-banner/eMember-banner-125.gif" width="125" height="125" /></a>
+<a href="http://www.oiopublisher.com/ref.php?u=4059"><img src="http://www.oiopublisher.com/images/banners/125x125_1.gif" width="125" height="125" /></a>
+<a href="https://www.e-junkie.com/ecom/gb.php?cl=29717&c=ib&aff=85223"><img src="http://www.webtechglobal.co.uk/images/affiliate-banners/classipress/classipress_125x125_02.jpg" width="125" height="125" /></a>
+<a href="http://www.tipsandtricks-hq.com/wordpress-estore-plugin-complete-solution-to-sell-digital-products-from-your-wordpress-blog-securely-1059?ap_id=WebTechGlobal"><img src="http://images.tipsandtricks-hq.com/my-product-banner/eStore_banner_125_125.gif" width="125" height="125" /></a>
+<a href="http://themeforest.net?ref=WebTechGlobal"><img src="http://www.webtechglobal.co.uk/images/affiliate-banners/theme_forest_125x125.gif" width="125" height="125" /></a>
+
+            </div>
+
         </div>
-    </div>
-    
-    <div class="postbox closed">
-        <div class="handlediv" title="Click to toggle"><br /></div>
-        <h3>Notifications</h3>
-        <div class="inside">
-         <?php
-		 	yts_listnotifications('100','video-blog-builder/easy-csv-importer.php');
-		 ?>
-        </div>
-    </div>
+    </div>  
     
 <?php yts_footer(); ?>

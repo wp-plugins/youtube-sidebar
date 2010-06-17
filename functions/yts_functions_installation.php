@@ -33,7 +33,7 @@ function yts_insert_pluginsettings()
 	$yts['youtube']['styles']['many']['videos'] = 2;
 		
 	// adsense on and off per area - default is global switch, the rest is for area configuration
-	$yts['adsense']['activead'] = '8656642919';
+	$yts['adsense']['activead'] = '3791821102';
 	$yts['adsense']['home'] = 'Yes';
 	$yts['adsense']['single'] = 'Yes';
 	$yts['adsense']['many'] = 'Yes';	
@@ -41,74 +41,49 @@ function yts_insert_pluginsettings()
 	// default Google AdSense - user will be able to add as much as they want with full customisation
 	$yts['adsense']['ads'][0]['w'] = '125';
 	$yts['adsense']['ads'][0]['h'] = '125';
-	$yts['adsense']['ads'][0]['adslot'] = '0509601881';
+	$yts['adsense']['ads'][0]['adslot'] = '9066511357';
 	$yts['adsense']['ads'][0]['script'] = '<script type="text/javascript"><!--
-				google_ad_client = "pub-4923567693678329";
-				google_ad_slot = "0509601881";
-				google_ad_width = 125;
-				google_ad_height = 125;
-				//--></script><script type="text/javascript"
-				src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>';
-			
-	$yts['adsense']['ads'][1]['w'] = '180';
-	$yts['adsense']['ads'][1]['h'] = '150';
-	$yts['adsense']['ads'][1]['adslot'] = '7693841311';
-	$yts['adsense']['ads'][1]['script'] = '<script type="text/javascript"><!--
-				google_ad_client = "pub-4923567693678329";
-				google_ad_slot = "7693841311";
-				google_ad_width = 180;
-				google_ad_height = 150;
-				//-->
-				</script><script type="text/javascript"
-				src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>';	
+google_ad_client = "pub-4923567693678329";
+/* 125x125, created 6/17/10 */
+google_ad_slot = "9066511357";
+google_ad_width = 125;
+google_ad_height = 125;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>';
 	
 	$yts['adsense']['ads'][2]['w'] = '200';
 	$yts['adsense']['ads'][2]['h'] = '200';
-	$yts['adsense']['ads'][2]['adslot'] = '8656642919';
+	$yts['adsense']['ads'][2]['adslot'] = '3791821102';
 	$yts['adsense']['ads'][2]['script'] = '<script type="text/javascript"><!--
-				google_ad_client = "pub-4923567693678329";
-				google_ad_slot = "8656642919";
-				google_ad_width = 200;
-				google_ad_height = 200;
-				//-->
-		        </script><script type="text/javascript"
-				src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>';
+google_ad_client = "pub-4923567693678329";
+/* 200x200, created 6/17/10 */
+google_ad_slot = "3791821102";
+google_ad_width = 200;
+google_ad_height = 200;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>';
 				
 	$yts['adsense']['ads'][3]['w'] = '250';
 	$yts['adsense']['ads'][3]['h'] = '250';
-	$yts['adsense']['ads'][3]['adslot'] = '1660801882';
+	$yts['adsense']['ads'][3]['adslot'] = '7916087204';
 	$yts['adsense']['ads'][3]['script'] = '<script type="text/javascript"><!--
-				google_ad_client = "pub-4923567693678329";
-				google_ad_slot = "1660801882";
-				google_ad_width = 250;
-				google_ad_height = 250;
-				//-->
-				</script><script type="text/javascript"
-				src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>';	
-	
-	$yts['adsense']['ads'][4]['w'] = '300';
-	$yts['adsense']['ads'][4]['h'] = '250';
-	$yts['adsense']['ads'][4]['adslot'] = '7071012952';
-	$yts['adsense']['ads'][4]['script'] = '<script type="text/javascript"><!--
-				google_ad_client = "pub-4923567693678329";
-				google_ad_slot = "7071012952";
-				google_ad_width = 300;
-				google_ad_height = 250;
-				//-->
-				</script><script type="text/javascript"
-				src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>';
-		
-	$yts['adsense']['ads'][5]['w'] = '336';
-	$yts['adsense']['ads'][5]['h'] = '280';
-	$yts['adsense']['ads'][5]['adslot'] = '6055085333';
-	$yts['adsense']['ads'][5]['script'] = '<script type="text/javascript"><!--
-				google_ad_client = "pub-4923567693678329";
-				google_ad_slot = "6055085333";
-				google_ad_width = 336;
-				google_ad_height = 280;
-				//-->
-				</script><script type="text/javascript"
-				src="http://pagead2.googlesyndication.com/pagead/show_ads.js"></script>';
+google_ad_client = "pub-4923567693678329";
+/* 250x250, created 6/17/10 */
+google_ad_slot = "7916087204";
+google_ad_width = 250;
+google_ad_height = 250;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>';	
+
 	
 	return add_option( 'yts_settings', $yts );	// will initially create option - then function can be used to reset
 }

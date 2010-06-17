@@ -57,7 +57,7 @@ function yts_createmenu()
 	
 	$per = 10;
 	
-	add_menu_page('Video Blogger', 'Video Blogger', $per, __FILE__, 'yts_toppage1');
+	add_menu_page('YouTube Sidebar', 'YouTube Sidebar', $per, __FILE__, 'yts_toppage1');
     add_submenu_page(__FILE__, 'Manager', 'Manager', $per, 'yts_manager', 'yts_subpage2');
     add_submenu_page(__FILE__, 'Settings', 'Settings', $per, 'yts_settings', 'yts_subpage12');
     add_submenu_page(__FILE__, 'Tools', 'Tools', $per, 'yts_tools', 'yts_subpage13');
