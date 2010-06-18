@@ -17,6 +17,9 @@ There are interfaces for managing vidoes so you don't need to open posts all the
 Standard Wordpress Plugin Installation
 
 == Changelog ==
+= 1.0 =
+* Some basic errors corrected caused by quick changes just before release
+
 = 0.9 =
 * Released 17th June 2010
 * The plugin got a complete overhaul and everything is new

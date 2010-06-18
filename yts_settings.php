@@ -4,7 +4,6 @@
 yts_saveglobalsettings();
 yts_reinstallsettings();
 yts_saveyoutubesettings();
-yts_savebliptvsettings();
 yts_saveadsensettings();
 	
 // get options again before final output
@@ -95,8 +94,8 @@ $yts = get_option( 'yts_settings');
             <br />              
              <a href="#" title="">Allow Border</a>
             <select name="yts_home_border" size="1">
-                <option value="&border=1" <?php yts_echoselected( $yts['youtube']['styles']['default']['border'],'&border=1' ); ?>>Yes</option>
-                <option value="&border=0" <?php yts_echoselected( $yts['youtube']['styles']['default']['border'],'&border=0' ); ?>>No</option>
+                <option value="&border=1" <?php yts_echoselected( $yts['youtube']['styles']['home']['border'],'&border=1' ); ?>>Yes</option>
+                <option value="&border=0" <?php yts_echoselected( $yts['youtube']['styles']['home']['border'],'&border=0' ); ?>>No</option>
             </select>
             <br />       
              <a href="#" title="">Allow Autoplay</a>
@@ -138,8 +137,8 @@ $yts = get_option( 'yts_settings');
             <br />              
              <a href="#" title="">Allow Border</a>
             <select name="yts_single_border" size="1">
-                <option value="&border=1" <?php yts_echoselected( $yts['youtube']['styles']['default']['border'],'&border=1' ); ?>>Yes</option>
-                <option value="&border=0" <?php yts_echoselected( $yts['youtube']['styles']['default']['border'],'&border=0' ); ?>>No</option>
+                <option value="&border=1" <?php yts_echoselected( $yts['youtube']['styles']['single']['border'],'&border=1' ); ?>>Yes</option>
+                <option value="&border=0" <?php yts_echoselected( $yts['youtube']['styles']['single']['border'],'&border=0' ); ?>>No</option>
             </select>
             <br />       
              <a href="#" title="">Allow Autoplay</a>
@@ -181,8 +180,8 @@ $yts = get_option( 'yts_settings');
             <br />              
              <a href="#" title="">Allow Border</a>
             <select name="yts_many_border" size="1">
-                <option value="&border=1" <?php yts_echoselected( $yts['youtube']['styles']['default']['border'],'&border=1' ); ?>>Yes</option>
-                <option value="&border=0" <?php yts_echoselected( $yts['youtube']['styles']['default']['border'],'&border=0' ); ?>>No</option>
+                <option value="&border=1" <?php yts_echoselected( $yts['youtube']['styles']['many']['border'],'&border=1' ); ?>>Yes</option>
+                <option value="&border=0" <?php yts_echoselected( $yts['youtube']['styles']['many']['border'],'&border=0' ); ?>>No</option>
             </select>
             <br />       
              <a href="#" title="">Allow Autoplay</a>

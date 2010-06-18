@@ -215,7 +215,7 @@ function yts_footer()
 {
 	$yts = get_option( 'yts_settings' );?>
     
-	<p>Copyright &copy; 2010 - WebTechGlobal Ltd</p> 
+	<p><a href="http://www.webtechglobal.co.uk" title="Click here to visit WebTechGlobal" target="_blank">Developed By WebTechGlobal Ltd</a></p> 
     
 	</div><!-- end of post stuff met box sortables -->
 	</div><!-- end of wrap -->
@@ -229,7 +229,7 @@ function yts_footer()
         });
         //-->
     </script> <?php
-	$debugmode = 1;
+	$debugmode = 0;
 
 	if( $debugmode == 1 )
 	{

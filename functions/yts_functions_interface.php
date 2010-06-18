@@ -65,7 +65,7 @@ function yts_postlist_sidebarvideos( $limit )
 			$youtubevids = get_post_meta( $post->ID, 'youtubeid' );
 
 			// if post meta with videos found for current post then add to list
-			if( $blipvids || $youtubevids )
+			if( $youtubevids )
 			{	
 				// establish number of videos in total - use to build table row span
 				$youtubecount = 0;

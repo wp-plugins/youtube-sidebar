@@ -1,7 +1,7 @@
 <?php
 /*
 	Plugin Name: YouTube Sidebar
-	Version: 0.9
+	Version: 1.0
 	Plugin URI:http://www.webtechglobal.co.uk/blog/wordpress/youtube-sidebar-plugin
 	Description: Add YouTube or Blip TV videos to any post to make them show in your sidebar 
 	Author: Ryan Bayne
