@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: Ryan Bayne
-Donate link: http://www.webtechglobal.co.uk/blog/wordpress/youtube-sidebar-plugin
+Donate link: http://www.webtechglobal.co.uk/services/downloads/wordpress-youtube-sidebar-plugin
 Tags: youtube,video,sidebar
 Requires at least: 2.5.0
 Tested up to: 2.8.6
