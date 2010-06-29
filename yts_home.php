@@ -1,4 +1,7 @@
-<?php yts_header('Home Page');?>
+<?php yts_header('YouTube Sidebar - Home Page');?>
+
+    <h2>Adding Videos</h2>
+    <p>Add a custom field named "bliptvid" or "youtubeid" to your post and paste the videos ID into the value.</p>
 
           <div class="postbox">
         

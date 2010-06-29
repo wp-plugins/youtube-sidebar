@@ -1,4 +1,4 @@
-<?php yts_header('Tools');
+<?php yts_header('YouTube Sidebar - Tools');
 
 yts_newadsensead();
 yts_deleteadsensead();

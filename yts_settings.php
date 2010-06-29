@@ -1,4 +1,4 @@
-<?php yts_header('Settings'); 
+<?php yts_header('YouTube Sidebar - Settings'); 
 
 // processing functions
 yts_saveglobalsettings();

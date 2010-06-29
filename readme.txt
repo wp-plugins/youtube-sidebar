@@ -16,6 +16,10 @@ There are interfaces for managing vidoes so you don't need to open posts all the
 
 Standard Wordpress Plugin Installation
 
+    <h2>Adding Videos</h2>
+    <p>Add a custom field named "youtubeid" to your post and paste the videos ID into the value.</p>
+
+
 == Changelog ==
 = 1.0 =
 * Some basic errors corrected caused by quick changes just before release

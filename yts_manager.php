@@ -1,4 +1,4 @@
-<?php yts_header('Video Blogger Manager');
+<?php yts_header('YouTube Sidebar -  Manager');
 
 yts_addvideo_sidebar();
 yts_addvideo_content();
