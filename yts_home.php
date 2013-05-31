@@ -1,5 +1,11 @@
 <?php yts_header('YouTube Sidebar - Home Page');?>
 
+    <h2>Warning - May 2013</h2>
+    <p>This plugin has been re-developed from scratch. A new version will be released within the next 24 hours and it will not be compatible with 
+    existing installations. Please contact WebTechGlobal if this is an issue. We are not working on backwards compatability because the plugin
+    has been offline for 2 years pending re-release and we do not expect people to be using it. However we are happy to discuss a migration from the
+    old build if needed. You can email info@webtechglobal.co.uk.</p>
+    
     <h2>Adding Videos</h2>
     <p>Add a custom field named "bliptvid" or "youtubeid" to your post and paste the videos ID into the value.</p>
 

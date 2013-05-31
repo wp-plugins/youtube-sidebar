@@ -21,6 +21,9 @@ Standard Wordpress Plugin Installation
 
 
 == Changelog ==
+= 1.2.3 =
+* Added a warning regarding re-development and release of the plugin very soon. It will not be backwards compatible but we are open to making it so.
+
 = 1.0 =
 * Some basic errors corrected caused by quick changes just before release
 
