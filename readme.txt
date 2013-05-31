@@ -9,8 +9,15 @@ Stable tag: trunk
 Add YouTube videos to your sidebar for each page on your blog using custom fields and a widget. 
 
 == Description ==
-Display YouTube videos on individual pages. Let them list on a page, category view or front page or switch them off. You can even let AdSense show when a post doesnt have a video.
-There are interfaces for managing vidoes so you don't need to open posts all the time. There is always more to come, please contact me if you would like any changes made to the plugin.
+
+Until 25th May 2013 the plugin was not really supported but we always intended to come back to it for the long run.
+The following message has been displayed on the plugins page for 2 years...
+
+"!This plugin hasn't been updated in over 2 years. It may no longer be maintained or supported and may have compatibility issues when used with more recent versions of WordPress."
+
+The version released today '31st May 2013' is simply to apply warnings regarding a new releasing coming soon, within days. The plugin was re-developed
+by scratch and is a whole new software so a warning had to go out. However it is always a webmasters reponsibility to backup existing files and data anyway. We
+take no responsibility for the results of failing to do so but will be standing by for anyone seeking support on migrated to the newer better plugin.
 
 == Installation ==
 
