@@ -4,7 +4,7 @@ Donate link: http://www.webtechglobal.co.uk/services/downloads/wordpress-youtube
 Tags: youtube,video,sidebar
 Requires at least: 2.5.0
 Tested up to: 2.8.6
-Stable tag: trunk
+Stable tag: 1.2.3
 
 Add YouTube videos to your sidebar for each page on your blog using custom fields and a widget. 
 
@@ -19,6 +19,7 @@ The version released today '31st May 2013' is simply to apply warnings regarding
 by scratch and is a whole new software so a warning had to go out. However it is always a webmasters reponsibility to backup existing files and data anyway. We
 take no responsibility for the results of failing to do so but will be standing by for anyone seeking support on migrated to the newer better plugin.
 
+See "Developers" screen for a link to download the latest build!
 == Installation ==
 
 Standard Wordpress Plugin Installation
