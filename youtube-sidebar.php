@@ -125,7 +125,6 @@ foreach (scandir( WTG_YTS_DIR . 'wtg-core/wp/' ) as $wtgcore_filename) {
 ##########################################################################################
 require_once(WTG_YTS_DIR.'include/yts_public_functions.php');
 require_once(WTG_YTS_DIR.'include/yts_core_functions.php'); 
-require_once(WTG_YTS_DIR.'include/yts_settings_functions.php');
 require_once(WTG_YTS_DIR.'include/yts_ajax_admin_functions.php');  
 require_once(WTG_YTS_DIR.'include/yts_install_functions.php');
 require_once(WTG_YTS_DIR.'include/yts_sql_functions.php');
