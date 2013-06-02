@@ -301,7 +301,7 @@ function yts_WP_SQL_options_beginning_with($prependvalue){
 */
 function yts_WP_SQL_does_post_exist_byid($id){
     global $wpdb;
-    return $wpdb->get_row("SELECT post_title FROM wp_posts WHERE id = '" . $id . "'", 'ARRAY_A');    
+    return $wpdb->get_row("SELECT post_title FROM $wpdb->posts WHERE id = '" . $id . "'", 'ARRAY_A');    
 } 
 
 /**
@@ -420,5 +420,23 @@ function yts_WP_SQL_drop_table($table_name){
     }else{
         yts_notice('Database table named '.$table_name.' has already been deleted.','error','Tiny','','','echo');
     }    
+}
+
+/**
+* Mass change one key name to another
+* 
+* @param mixed $old_key
+* @param mixed $new_key
+*/
+function yts_update_meta_key( $old_key=null, $new_key=null ){
+    global $wpdb;
+    $results = $wpdb->get_results( 
+        "
+            UPDATE ".$wpdb->prefix."postmeta 
+            SET meta_key = '".$new_key."' 
+            WHERE meta_key = '".$old_key."'
+        "
+    , ARRAY_A );
+    return $results;
 }
 ?>

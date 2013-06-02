@@ -172,15 +172,19 @@ function yts_form_add_videos_to_posts(){
                 
                 if($post_ID && is_numeric($post_ID)){
                     
-                    if($value == ''){
-                    }else{
+                    if($value != ''){
+                    
+                        $exists_already = false;
+                        $mykey_values = get_post_custom_values('my_key');
+                        foreach ( $mykey_values as $key => $existing_value ) {
+                            if($value == $existing_value){$exists_already = true;} 
+                        }  
                         
-                        ### TODO:HIGHPRIORITY, check if video ID already exists in posts meta
+                        if(!$exists_already){                      
+                            add_post_meta($post_ID,'youtubesidebar',$value);# $value = video id at this point
+                        }
                         
-                        add_post_meta($post_ID,'youtubesidebar',$value);# $value = video id at this point
-                        
-                        yts_notice_postresult('success','Posts Added Successfully','Video with ID 
-                        '.$value.' was added to post with ID '.$post_ID.'');  
+                        yts_notice_postresult('success','Posts Added Successfully','Video with ID '.$value.' was added to post with ID '.$post_ID.'');  
                     }  
                 }
             }
@@ -206,8 +210,7 @@ function yts_form_save_video_options(){
         
         yts_update_option_adminsettings($yts_adm_set);
 
-        yts_n_postresult('success','Video Options Saved','Your video options have been saved
-        and take effect immediately.');
+        yts_n_postresult('success','Video Options Saved','Your video options have been saved and take effect immediately.');
 
         return false;// must go inside $_POST validation, not at end of function         
     }else{
@@ -270,12 +273,7 @@ function yts_form_save_ad_options(){
 
         global $yts_adm_set;
 
-        $yts_adm_set['adoptions']['maximumvideos'] = $_POST['yts_adsenseoptions_maximum'];
-        $yts_adm_set['adoptions']['color'] = $_POST['yts_adsenseoptions_color'];
-        $yts_adm_set['adoptions']['border'] = $_POST['yts_adsenseoptions_border'];
-        $yts_adm_set['adoptions']['autoplay'] = $_POST['yts_adsenseoptions_autoplay'];
-        $yts_adm_set['adoptions']['fullscreen'] = $_POST['yts_adsenseoptions_fullscreen'];
-        $yts_adm_set['adoptions']['scriptaccess'] = $_POST['yts_adsenseoptions_scriptaccess'];
+        $yts_adm_set['adoptions']['maximumads'] = $_POST['yts_adsenseoptions_maximum'];
   
         yts_update_option_adminsettings($yts_adm_set);
 
@@ -285,5 +283,23 @@ function yts_form_save_ad_options(){
     }else{
         return true;
     }        
+}
+
+function yts_form_migrate(){
+    if(isset($_POST['yts_hidden_pageid']) && $_POST['yts_hidden_pageid'] == 'main' && isset($_POST['yts_hidden_panel_name']) && $_POST['yts_hidden_panel_name'] == 'migration'){
+
+        global $yts_adm_set;
+        
+        $migration_results = yts_update_meta_key('youtubeid','youtubesidebar');
+                
+        yts_var_dump($migration_results);
+        
+        yts_n_postresult('success','YouTube ID Migration Complete','All custom field keys named "youtubeid" have
+        been changed to "youtubesidebar".');
+
+        return false;// must go inside $_POST validation, not at end of function         
+    }else{
+        return true;
+    }     
 }
 ?>

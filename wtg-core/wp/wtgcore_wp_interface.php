@@ -945,7 +945,7 @@ function yts_list_plugintables(){
 * 2. the javascript for this is added to the footer
 */
 function c2p_tt($label ='?',$title = 'Please visit www.youtubesidebar.com for help'){
-    echo '<span class="givemesometips" title="'.$title.'">'.$label.'</span>';
+    echo '<span class="yts-tips" title="'.$title.'">'.$label.'</span>';
 }     
 
 /**

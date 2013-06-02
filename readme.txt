@@ -6,7 +6,7 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: YouTube,Widget,YouTube Widget,YouTube Sidebar,Sidebar,Videos,Video Sidebar,Video Widget
 Requires at least: 3.5.1
 Tested up to: 3.6.0
-Stable tag: 6.9.8
+Stable tag: 2.0.0
 
 YouTube Sidebar Plugin by WTG
 
@@ -39,21 +39,24 @@ The plugin was released in 2010 but re-developed from scratch in 2013
 
 == Screenshots ==
 
-1. TYPE SCREENSHOT 1 COMMENT HERE
-2. TYPE SCREENSHOT 2 COMMENT HERE
-3. TYPE SCREENSHOT 3 COMMENT HERE
+1. YouTube Sidebar lists all posts for easily adding video ID
+2. Options are provided to configure video appearance and behaviour
 
 == Changelog ==  
 = 2.0.0 =
 * From The Developers
     * Thank you for installing the new YouTube Sidebar plugin by WebTechGlobal
-    * WARNING: the plugin has been re-developed from scratch. We plan to provide tools to upgrading old installations properly but please backup your database before using them.
+    * WARNING: the plugin has been re-developed from scratch. There is a form for migrating the YouTube video ID data but thats all. Please backup files and data before attempting. Let us know if you need more.
 * Fixes     
     * None
 * Feature Changes
-    * None
+    * New jQuery UI interface
+    * Meta key for YouTube video "youtubeid" renamed to "youtubesidebar" due to the latter being too generic. No conflict reported, just prevention.
+* Known Issues
+    * Advanced Widget: options are not being applied to videos within the advanced widget yet, not long to wait though
+    * Log Screen: the log system still needs some work but mainly logging is not integrated throughout YouTube Sidebar yet, what would you like to see logged?
 * Technical Notes
-    * None
+    * Totally new plugin code, created from scratch and uses WebTechGlobal plugin core which will be updated for many years
     
 = 1.0 =
 * Some basic errors corrected caused by quick changes just before release

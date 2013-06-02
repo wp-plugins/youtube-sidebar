@@ -171,9 +171,7 @@ function yts_establish_csvfile_separator_fgetmethod($csv_filename, $output = fal
 * It also prepares the array to hold other formats of the column headers in prepartion for the plugins various uses
 */
 function yts_get_file_headers_formatted($csv_filename,$fileid,$separator = ',',$quote = '"',$fields = 0){
-
     $header_array = array();
-    
     // read and loop through the first row in the csv file  
     $handle = fopen(WTG_YTS_CONTENTFOLDER_DIR .'/'. $csv_filename, "r");
     while (($row = fgetcsv($handle, 10000, $separator,$quote)) !== FALSE) {

@@ -47,13 +47,19 @@ if($cont){
     // Save video ID for posts
     $cont = yts_form_add_videos_to_posts();
     
-    // Save Video Options panel
+    // Save ad snippet
     $cont = yts_form_save_ad_snippet();
     
+    // Save Video Options panel
+    $cont = yts_form_save_video_options();
+        
     // Edit ad panel
     $cont = yts_form_editads();
     
     // Save Ad Options panel
     $cont = yts_form_save_ad_options();
+    
+    // migrate from 1.2.3 to 2.0.0
+    $cont = yts_form_migrate();
 }
 ?>

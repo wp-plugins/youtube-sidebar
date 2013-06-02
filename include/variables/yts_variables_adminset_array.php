@@ -18,6 +18,15 @@ $yts_adm_set['ui_helpdialog_height'] = 500;
 // log
 $yts_adm_set['reporting']['uselog'] = 1;
 $yts_adm_set['reporting']['loglimit'] = 1000;
+// video options
+$yts_adm_set['videooptions']['maximumvideos'] = 1;
+$yts_adm_set['videooptions']['color'] = '&color1=0x2b405b&color2=0x6b8ab6';
+$yts_adm_set['videooptions']['border'] = 'enable';
+$yts_adm_set['videooptions']['autoplay'] = 'enable';
+$yts_adm_set['videooptions']['fullscreen'] = 'enable';
+$yts_adm_set['videooptions']['scriptaccess'] = 'always';
+// ad options
+$yts_adm_set['adoptions']['maximumads'] = 1;
 // other
 $yts_adm_set['ecq'] = array();
 $yts_adm_set['chmod'] = '0750';

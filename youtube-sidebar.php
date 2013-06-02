@@ -1,6 +1,6 @@
 <?php         
 /*
-Plugin Name: YouTube Sidebaar
+Plugin Name: YouTube Sidebar Plugin
 Version: 2.0.0
 Plugin URI: http://youtubesidebar.webtechglobal.co.uk
 Description: Display YouTube video for individual post and pages in the sidebar
@@ -180,7 +180,8 @@ if(!$yts_is_free){# if you hack this, you will need to write the required functi
 }   
  
 // sidebar widget 1 load
-add_action('plugins_loaded','yts_main_widget');      
+add_action('plugins_loaded','yts_basic_widget');      
+add_action('plugins_loaded','yts_advanced_widget');
            
 ####################################################################################################
 ####                   ADMIN ACTIONS, SCRIPTS, CSS - GLOBAL (ENTIRE WP DASHBOARD)               ####

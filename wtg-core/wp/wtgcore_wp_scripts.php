@@ -5,7 +5,7 @@
 function yts_WP_adminpage_script() {?>
     <script type="text/javascript">
     jQuery(document).ready( function() {
-        jQuery('.givemesometips').tTips();
+        jQuery('.yts-tips').tTips();
     });
     </script><?php 
 }  

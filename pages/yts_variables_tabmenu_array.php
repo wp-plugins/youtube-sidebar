@@ -24,16 +24,6 @@ $yts_mpt_arr['menu']['main']['permissions']['customcapability'] = 'update_core';
 $yts_mpt_arr['menu']['main']['package'] = 'free';// free|paid|beta - free will add screen to all packages - beta requires $yts_beta_mode = true to display the screen, meaning beta can be hidden also, important for switching to a ready build before release 
 $sub = 0; 
 $yts_mpt_arr['menu']['main']['tabs'][$sub]['active'] = true;
-$yts_mpt_arr['menu']['main']['tabs'][$sub]['slug'] = 'news';
-$yts_mpt_arr['menu']['main']['tabs'][$sub]['label'] = 'News';  
-$yts_mpt_arr['menu']['main']['tabs'][$sub]['allowhide'] = false;
-$yts_mpt_arr['menu']['main']['tabs'][$sub]['package'] = 'free';
-$yts_mpt_arr['menu']['main']['tabs'][$sub]['display'] = true;// user can change to false to hide screens
-$yts_mpt_arr['menu']['main']['tabs'][$sub]['path'] = $freepath.'pagemain/yts_news.php';
-$yts_mpt_arr['menu']['main']['tabs'][$sub]['permissions']['defaultcapability'] = 'update_core';
-$yts_mpt_arr['menu']['main']['tabs'][$sub]['permissions']['customcapability'] = 'update_core';
-++$sub;
-$yts_mpt_arr['menu']['main']['tabs'][$sub]['active'] = true;
 $yts_mpt_arr['menu']['main']['tabs'][$sub]['slug'] = 'addremovevideos';
 $yts_mpt_arr['menu']['main']['tabs'][$sub]['label'] = 'Add/Remove Videos';# developer information
 $yts_mpt_arr['menu']['main']['tabs'][$sub]['allowhide'] = true;
