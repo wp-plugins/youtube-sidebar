@@ -1,6 +1,6 @@
 <?php         
 /*
-Plugin Name: YouTube Sidebar Plugin
+Plugin Name: YouTube Sidebar by WebTechGlobal
 Version: 2.0.0
 Plugin URI: http://youtubesidebar.webtechglobal.co.uk
 Description: Display YouTube video for individual post and pages in the sidebar
@@ -125,11 +125,9 @@ foreach (scandir( WTG_YTS_DIR . 'wtg-core/wp/' ) as $wtgcore_filename) {
 ##########################################################################################
 require_once(WTG_YTS_DIR.'include/yts_public_functions.php');
 require_once(WTG_YTS_DIR.'include/yts_core_functions.php'); 
-require_once(WTG_YTS_DIR.'include/yts_settings_functions.php');
 require_once(WTG_YTS_DIR.'include/yts_ajax_admin_functions.php');  
 require_once(WTG_YTS_DIR.'include/yts_install_functions.php');
-require_once(WTG_YTS_DIR.'include/yts_sql_functions.php');
-require_once(WTG_YTS_DIR.'include/yts_post_functions.php');              
+require_once(WTG_YTS_DIR.'include/yts_sql_functions.php');             
 require_once(WTG_YTS_DIR.'include/variables/yts_wordpressoptionrecords_array.php'); 
 require_once(WTG_YTS_DIR.'wtg-core/wp/wparrays/wtgcore_wp_tables_array.php');
 if(is_admin()){

@@ -8,7 +8,7 @@ Requires at least: 3.5.1
 Tested up to: 3.6.0
 Stable tag: 2.0.0
 
-YouTube Sidebar Plugin by WTG
+YouTube Sidebar by WebTechGlobal
 
 == Description ==
 
@@ -43,6 +43,18 @@ The plugin was released in 2010 but re-developed from scratch in 2013
 2. Options are provided to configure video appearance and behaviour
 
 == Changelog ==  
+= 2.0.1 =
+* From The Developers
+    * None
+* Fixes     
+    * None
+* Feature Changes
+    * None
+* Known Issues
+    * None
+* Technical Notes
+    * Paypal donation button changed to a generic WebTechGlobal Wordpress Plugin button so it can be used on all of our lugins
+    
 = 2.0.0 =
 * From The Developers
     * Thank you for installing the new YouTube Sidebar plugin by WebTechGlobal
