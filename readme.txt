@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: WebTechGlobal
+Contributors: Zara Walsh
 Donate link: http://www.webtechglobal.co.uk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -8,7 +8,7 @@ Requires at least: 3.5.1
 Tested up to: 3.6.0
 Stable tag: 2.0.0
 
-YouTube Sidebar by WebTechGlobal
+YouTube Sidebar Plugin
 
 == Description ==
 
